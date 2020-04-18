@@ -32,7 +32,7 @@ let rec acquire_id () : id =
   with
   | Not_found
   | Failure _ -> printf "Invalid id \n";
-                 aqurire_id () ;;
+                 aquire_id () ;;
 
 let rec acquire_amount () : int =
   try
