@@ -30,8 +30,3 @@ let update (id : id) (amt : int) =
 
 let close (id : id) : unit =
   data_base := DataB.remove id !data_base ;;
-
-let dump () =
-  !data_base
-  |> DataB.iter (fun i (name, bal) ->
-                 Printf.printf "[%d] %s -> %d\n" i name bal) ;;
