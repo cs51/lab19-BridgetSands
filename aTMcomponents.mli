@@ -22,7 +22,7 @@ type action =
   | Deposit of int    (* deposit an amount *)
   | Next              (* finish this customer and move on to the next one *)
   | Finished          (* shut down the ATM and exit entirely *)
-;; 
+;;
 
 (*....................................................................
  Initializing database of accounts
@@ -44,7 +44,7 @@ val initialize : account_spec list -> unit ;;
 (* acquire_id () -- Requests from the ATM customer and returns an id
    (akin to entering one's ATM card), by prompting for an id number
    and reading an id from stdin. *)
-val acquire_id : unit -> id ;;
+val acquire_id : unit -> id  ;;
 
 (* acquire_amount () -- Requests from the ATM customer and returns an
    amount by prompting for an amount and reading an int from stdin. *)
@@ -58,9 +58,9 @@ val acquire_act : unit -> action ;;
   Querying and updating the account database
 
   These functions all raise Not_found if there is no account with the
-  given id. 
+  given id.
  *)
-  
+
 (* get_balance id -- Returns the balance for the customer account with
    the given id. *)
 val get_balance : id -> int ;;
@@ -76,7 +76,7 @@ val update_balance : id -> int -> unit ;;
 (*....................................................................
   Presenting information and cash to the customer
  *)
-  
+
 (* present_message message -- Presents to the customer (on stdout) the
    given message followed by a newline. *)
 val present_message : string -> unit ;;
