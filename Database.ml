@@ -34,4 +34,4 @@ let close (id : id) : unit =
 let dump () =
   !data_base
   |> DataB.iter (fun i (nam, bal) ->
-                 Printf.print "[%d] %s -> %d\n" i nam bal) ;;
+                 Printf.printf "[%d] %s -> %d\n" i nam bal) ;;
