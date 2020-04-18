@@ -29,4 +29,4 @@ let update (id : id) (amt : int) =
   data_base := DataB.add id (n, amt) !data_base ;;
 
 let close (id : id) : unit =
-  data_base := DataB.remove id !data_base ;;
+  data_base := DataB.remove id !data_base;;
