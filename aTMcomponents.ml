@@ -1,5 +1,4 @@
 open Printf ;;
-open Scanf ;;
 
 
 module DB = Database
