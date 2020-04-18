@@ -8,7 +8,7 @@ module DataB = Map.Make (struct
 let database: (string * int) DataB.t ref = ref DataB.empty ;;
 
 let create (id : id) (n : string) : unit =
-  database := DataB.add id (name, 0) !database ;;
+  database := DataB.add id (n, 0) !database ;;
 
 let find (id : id ) : string * int =
   DataB.find id !database ;;
@@ -34,4 +34,4 @@ let close (id : id) : unit =
 let dump () =
   !database
   |> DataB.iter (fun x (n, amt) ->
-                 Printf.printf "[%d] %s -> %d\n" i n amt ) ;; 
+                 Printf.printf "[%d] %s -> %d\n" i n amt ) ;;
