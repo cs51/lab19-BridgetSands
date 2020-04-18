@@ -43,9 +43,9 @@ let rec acquire_amount () : int =
   | Failure _ -> printf "Invalid amount \n";
                  acquire_amount () ;;
 
-let rec acquire_act (u : unit) : action =
+let rec acquire_act () : action =
   Printf.printf "Enter Action: balance, next, finished, withdraw, deposit: ";
-  let a = String.lowercase_ascii (read_string u) in
+  let a = String.lowercase_ascii (read_line ()) in
   match a with
   | "balance" -> Balance
   | "next" -> Next
