@@ -5,16 +5,16 @@ module DataB = Map.Make (struct
                             let compare : int -> int -> int = compare
                           end )  ;;
 
-let database: (string * int) DataB.t ref = ref DataB.empty ;;
+let data_base: (string * int) DataB.t ref = ref DataB.empty ;;
 
 let create (id : id) (n : string) : unit =
-  database := DataB.add id (n, 0) !database ;;
+  data_base := DataB.add id (n, 0) !data_base ;;
 
 let find (id : id ) : string * int =
-  DataB.find id !database ;;
+  DataB.find id !data_base ;;
 
 let exists (id : id) : bool =
-  DataB.exists (fun key _val -> key = id) !database ;;
+  DataB.exists (fun key _val -> key = id) !data_base ;;
 
 let balance (id : id ) : int =
   let _n, amt = find id in
@@ -26,12 +26,12 @@ let name (id : id ) : string =
 
 let update (id : id) (amt : int) =
   let n = name id in
-  database := DataB.add id (n, amt) !database ;;
+  data_base := DataB.add id (n, amt) !data_base ;;
 
 let close (id : id) : unit =
-  database := DataB.remove id !database ;;
+  data_base := DataB.remove id !data_base ;;
 
 let dump () =
-  !database
-  |> DataB.iter (fun j (n, amt) ->
-                 Printf.printf "[%d] %s -> %d\n" j n amt ) ;;
+  !data_base
+  |> DataB.iter (fun i (nam, bal) ->
+                 Printf.print "[%d] %s -> %d\n" i nam bal) ;;
