@@ -17,7 +17,7 @@ type action =
 type account_spec = {name : string; id : id; balance : int} ;;
 
 
-let rec initialize (a : account_spec list) : unit =
+let initialize (a : account_spec list) : unit =
   a
   |> List.iter (fun {name; id; balance}
                 -> DB.create id name;
@@ -32,7 +32,7 @@ let rec acquire_id () : id =
   with
   | Not_found
   | Failure _ -> printf "Invalid id \n";
-                 aquire_id () ;;
+                 acquire_id () ;;
 
 let rec acquire_amount () : int =
   try
